@@ -294,14 +294,14 @@ S:AddCallbackForAddon("Auctionator", "Auctionator", function()
 
 		if Atr_AddToSListButton then
 			S:HandleButton(Atr_AddToSListButton)
-			Atr_AddToSListButton:Width(95)
+			Atr_AddToSListButton:Width(94)
 			Atr_AddToSListButton:Point("TOPLEFT", -191, -304)
 		end
 
 		if Atr_RemFromSListButton then
 			S:HandleButton(Atr_RemFromSListButton)
-			Atr_RemFromSListButton:Width(95)
-			Atr_RemFromSListButton:Point("TOPLEFT", -94, -304)
+			Atr_RemFromSListButton:Width(94)
+			Atr_RemFromSListButton:Point("TOPLEFT", -91, -304)
 		end
 
 		if Atr_DelSListButton then

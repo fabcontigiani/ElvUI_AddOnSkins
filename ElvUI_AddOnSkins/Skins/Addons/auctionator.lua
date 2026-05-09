@@ -292,25 +292,47 @@ S:AddCallbackForAddon("Auctionator", "Auctionator", function()
 		Atr_Adv_Search_Button:Height(22)
 		Atr_Adv_Search_Button:Point("LEFT", Atr_Search_Button, "RIGHT", 5, 0)
 
-		S:HandleButton(Atr_AddToSListButton)
-		Atr_AddToSListButton:Width(193)
-		Atr_AddToSListButton:Point("TOPLEFT", -191, -304)
+		if Atr_AddToSListButton then
+			S:HandleButton(Atr_AddToSListButton)
+			Atr_AddToSListButton:Width(95)
+			Atr_AddToSListButton:Point("TOPLEFT", -191, -304)
+		end
 
-		S:HandleButton(Atr_RemFromSListButton)
-		Atr_RemFromSListButton:Width(193)
-		Atr_RemFromSListButton:Point("TOPLEFT", -191, -325)
+		if Atr_RemFromSListButton then
+			S:HandleButton(Atr_RemFromSListButton)
+			Atr_RemFromSListButton:Width(95)
+			Atr_RemFromSListButton:Point("TOPLEFT", -94, -304)
+		end
 
-		S:HandleButton(Atr_DelSListButton)
-		Atr_DelSListButton:Width(193)
-		Atr_DelSListButton:Point("TOPLEFT", -191, -346)
+		if Atr_DelSListButton then
+			S:HandleButton(Atr_DelSListButton)
+			Atr_DelSListButton:Width(193)
+			Atr_DelSListButton:Point("TOPLEFT", -191, -328)
+		end
 
-		S:HandleButton(Atr_NewSListButton)
-		Atr_NewSListButton:Width(193)
-		Atr_NewSListButton:Point("TOPLEFT", -191, -367)
+		if Atr_SrchSListButton then
+			S:HandleButton(Atr_SrchSListButton)
+			Atr_SrchSListButton:Width(193)
+			Atr_SrchSListButton:Point("TOPLEFT", -191, -328)
+		end
 
-		S:HandleButton(Atr_Back_Button)
-		Atr_Back_Button:Height(22)
-		Atr_Back_Button:Point("TOPLEFT", 7, 13)
+		if Atr_MngSListsButton then
+			S:HandleButton(Atr_MngSListsButton)
+			Atr_MngSListsButton:Width(193)
+			Atr_MngSListsButton:Point("TOPLEFT", -191, -351)
+		end
+
+		if Atr_NewSListButton then
+			S:HandleButton(Atr_NewSListButton)
+			Atr_NewSListButton:Width(193)
+			Atr_NewSListButton:Point("TOPLEFT", -191, -374)
+		end
+
+		if Atr_Back_Button then
+			S:HandleButton(Atr_Back_Button)
+			Atr_Back_Button:Height(22)
+			Atr_Back_Button:Point("TOPLEFT", 7, 13)
+		end
 
 		-- Sell tab
 		Atr_SellControls:SetTemplate("Transparent")
@@ -337,31 +359,37 @@ S:AddCallbackForAddon("Auctionator", "Auctionator", function()
 		Atr_StartingPriceText:Point("TOPLEFT", 13, -229)
 		Atr_StartingPriceDiscountText:Point("TOPLEFT", 10, -238)
 
-		Atr_Duration_Text:Point("TOPLEFT", 10, -276)
-		Atr_Duration_Text.SetPoint = E.noop
-		S:HandleDropDownBox(Atr_Duration, 130)
+		if Atr_Duration_Text then
+			Atr_Duration_Text:Point("TOPLEFT", 10, -276)
+			Atr_Duration_Text.SetPoint = E.noop
+		end
+		if Atr_Duration then S:HandleDropDownBox(Atr_Duration, 130) end
 
 		Atr_Deposit_Text:Point("TOPLEFT", 10, -304)
 
-		S:HandleEditBox(Atr_StackPriceGold)
-		S:HandleEditBox(Atr_StackPriceSilver)
-		S:HandleEditBox(Atr_StackPriceCopper)
-		S:HandleEditBox(Atr_ItemPriceGold)
-		S:HandleEditBox(Atr_ItemPriceSilver)
-		S:HandleEditBox(Atr_ItemPriceCopper)
-		S:HandleEditBox(Atr_StartingPriceGold)
-		S:HandleEditBox(Atr_StartingPriceSilver)
-		S:HandleEditBox(Atr_StartingPriceCopper)
-		S:HandleEditBox(Atr_Batch_NumAuctions)
-		S:HandleEditBox(Atr_Batch_Stacksize)
+		if Atr_StackPriceGold then S:HandleEditBox(Atr_StackPriceGold) end
+		if Atr_StackPriceSilver then S:HandleEditBox(Atr_StackPriceSilver) end
+		if Atr_StackPriceCopper then S:HandleEditBox(Atr_StackPriceCopper) end
+		if Atr_ItemPriceGold then S:HandleEditBox(Atr_ItemPriceGold) end
+		if Atr_ItemPriceSilver then S:HandleEditBox(Atr_ItemPriceSilver) end
+		if Atr_ItemPriceCopper then S:HandleEditBox(Atr_ItemPriceCopper) end
+		if Atr_StartingPriceGold then S:HandleEditBox(Atr_StartingPriceGold) end
+		if Atr_StartingPriceSilver then S:HandleEditBox(Atr_StartingPriceSilver) end
+		if Atr_StartingPriceCopper then S:HandleEditBox(Atr_StartingPriceCopper) end
+		if Atr_Batch_NumAuctions then S:HandleEditBox(Atr_Batch_NumAuctions) end
+		if Atr_Batch_Stacksize then S:HandleEditBox(Atr_Batch_Stacksize) end
 
 		-- More tab
-		S:HandleDropDownBox(Atr_DropDown1, 221)
-		Atr_DropDown1:Point("TOPLEFT", -211, -29)
+		if Atr_DropDown1 then
+			S:HandleDropDownBox(Atr_DropDown1, 221)
+			Atr_DropDown1:Point("TOPLEFT", -211, -29)
+		end
 
-		S:HandleButton(Atr_CheckActiveButton)
-		Atr_CheckActiveButton:Size(193, 22)
-		Atr_CheckActiveButton:Point("TOPLEFT", -191, -394)
+		if Atr_CheckActiveButton then
+			S:HandleButton(Atr_CheckActiveButton)
+			Atr_CheckActiveButton:Size(193, 22)
+			Atr_CheckActiveButton:Point("TOPLEFT", -191, -394)
+		end
 
 		if Atr_CancelAllUndercutsButton then
 			S:HandleButton(Atr_CancelAllUndercutsButton)
@@ -377,22 +405,25 @@ S:AddCallbackForAddon("Auctionator", "Auctionator", function()
 	Atr_StackingOptionsFrame:SetTemplate("Transparent")
 	Atr_ScanningOptionsFrame:SetTemplate("Transparent")
 	AuctionatorDescriptionFrame:SetTemplate("Transparent")
+	if AuctionatorResetsFrame then AuctionatorResetsFrame:SetTemplate("Transparent") end
+	if Atr_ShpList_Options_Frame then Atr_ShpList_Options_Frame:SetTemplate("Transparent") end
+	if Atr_MemorizeFrame then Atr_MemorizeFrame:SetTemplate("Transparent") end
 
 	Atr_Stacking_List:SetTemplate("Transparent")
 
-	S:HandleCheckBox(AuctionatorOption_Enable_Alt_CB)
-	S:HandleCheckBox(AuctionatorOption_Open_All_Bags_CB)
-	S:HandleCheckBox(AuctionatorOption_Show_StartingPrice_CB)
-	S:HandleCheckBox(AuctionatorOption_Def_Duration_CB)
-	S:HandleCheckBox(ATR_tipsVendorOpt_CB)
-	S:HandleCheckBox(ATR_tipsAuctionOpt_CB)
-	S:HandleCheckBox(ATR_tipsDisenchantOpt_CB)
+	if AuctionatorOption_Enable_Alt_CB then S:HandleCheckBox(AuctionatorOption_Enable_Alt_CB) end
+	if AuctionatorOption_Open_All_Bags_CB then S:HandleCheckBox(AuctionatorOption_Open_All_Bags_CB) end
+	if AuctionatorOption_Show_StartingPrice_CB then S:HandleCheckBox(AuctionatorOption_Show_StartingPrice_CB) end
+	if AuctionatorOption_Def_Duration_CB then S:HandleCheckBox(AuctionatorOption_Def_Duration_CB) end
+	if ATR_tipsVendorOpt_CB then S:HandleCheckBox(ATR_tipsVendorOpt_CB) end
+	if ATR_tipsAuctionOpt_CB then S:HandleCheckBox(ATR_tipsAuctionOpt_CB) end
+	if ATR_tipsDisenchantOpt_CB then S:HandleCheckBox(ATR_tipsDisenchantOpt_CB) end
 
-	S:HandleDropDownBox(AuctionatorOption_Deftab)
-	S:HandleDropDownBox(Atr_tipsShiftDD)
-	S:HandleDropDownBox(Atr_deDetailsDD, 220)
-	S:HandleDropDownBox(Atr_scanLevelDD)
-	Atr_deDetailsDDText:SetJustifyH("RIGHT")
+	if AuctionatorOption_Deftab then S:HandleDropDownBox(AuctionatorOption_Deftab) end
+	if Atr_tipsShiftDD then S:HandleDropDownBox(Atr_tipsShiftDD) end
+	if Atr_deDetailsDD then S:HandleDropDownBox(Atr_deDetailsDD, 220) end
+	if Atr_scanLevelDD then S:HandleDropDownBox(Atr_scanLevelDD) end
+	if Atr_deDetailsDDText then Atr_deDetailsDDText:SetJustifyH("RIGHT") end
 
 	local moneyEditBoxes = {
 		"UC_5000000_MoneyInput",
@@ -404,13 +435,46 @@ S:AddCallbackForAddon("Auctionator", "Auctionator", function()
 		"UC_500_MoneyInput",
 	}
 	for _, name in ipairs(moneyEditBoxes) do
-		S:HandleEditBox(_G[name.."Gold"])
-		S:HandleEditBox(_G[name.."Silver"])
-		S:HandleEditBox(_G[name.."Copper"])
+		if _G[name.."Gold"] then S:HandleEditBox(_G[name.."Gold"]) end
+		if _G[name.."Silver"] then S:HandleEditBox(_G[name.."Silver"]) end
+		if _G[name.."Copper"] then S:HandleEditBox(_G[name.."Copper"]) end
 	end
-	S:HandleEditBox(Atr_Starting_Discount)
+	if Atr_Starting_Discount then S:HandleEditBox(Atr_Starting_Discount) end
 
-	S:HandleButton(Atr_UCConfigFrame_Reset)
-	S:HandleButton(Atr_StackingOptionsFrame_Edit)
-	S:HandleButton(Atr_StackingOptionsFrame_New)
+	if Atr_UCConfigFrame_Reset then S:HandleButton(Atr_UCConfigFrame_Reset) end
+	if Atr_StackingOptionsFrame_Edit then S:HandleButton(Atr_StackingOptionsFrame_Edit) end
+	if Atr_StackingOptionsFrame_New then S:HandleButton(Atr_StackingOptionsFrame_New) end
+
+	if Atr_RB_N then S:HandleCheckBox(Atr_RB_N) end
+	if Atr_RB_S then S:HandleCheckBox(Atr_RB_S) end
+	if Atr_RB_M then S:HandleCheckBox(Atr_RB_M) end
+	if Atr_RB_L then S:HandleCheckBox(Atr_RB_L) end
+
+	if AuctionatorResetsFrame then
+		for _, child in ipairs({ AuctionatorResetsFrame:GetChildren() }) do
+			if child:GetObjectType() == "Button" then
+				S:HandleButton(child)
+			end
+		end
+	end
+
+	if Atr_ShpList_Options_Frame then
+		for _, child in ipairs({ Atr_ShpList_Options_Frame:GetChildren() }) do
+			if child:GetObjectType() == "Button" then
+				S:HandleButton(child)
+			end
+		end
+		if Atr_ShpList_Frame then Atr_ShpList_Frame:SetTemplate("Transparent") end
+		if Atr_ShpList_ScrollFrameScrollBar then S:HandleScrollBar(Atr_ShpList_ScrollFrameScrollBar) end
+	end
+
+	if Atr_MemorizeFrame then
+		if Atr_Mem_Forget then S:HandleButton(Atr_Mem_Forget) end
+		if Atr_Mem_Cancel then S:HandleButton(Atr_Mem_Cancel) end
+		if Atr_Mem_EB_itemName then S:HandleEditBox(Atr_Mem_EB_itemName) end
+		if Atr_Mem_EB_stackSize then S:HandleEditBox(Atr_Mem_EB_stackSize) end
+		if Atr_Mem_DD_numStacks then S:HandleDropDownBox(Atr_Mem_DD_numStacks) end
+		-- The OKAY button doesn't have a name, handle via child index
+		S:HandleButton((select(5, Atr_MemorizeFrame:GetChildren())))
+	end
 end)
